@@ -130,6 +130,6 @@ public class Invoice
      * @return tidak ada
      */
     public void printData(){
-        
+        System.out.println(totalPrice);
     }
 }
