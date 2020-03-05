@@ -27,6 +27,8 @@ public class Seller
         this.email = email;//mengganti nilai variabel email yang lama dengan parameter yang dimasukkan
         this.phoneNumber = phoneNumber;//mengganti nilai variabel phoneNumber yang lama dengan parameter yang dimasukkan
         this.location = location;//mengganti nilai variabel location yang lama dengan parameter yang dimasukkan
+        
+        
     }
     /***
      * getter getId digunakan untuk memanggil id yang saat ini tersimpan di memori

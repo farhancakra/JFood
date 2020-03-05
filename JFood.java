@@ -8,7 +8,7 @@ public class JFood
       "082245440870", location1);
       
       
-      Food food1 = new Food(1, "Cakwe", seller1, 17000, "gorengan");
+      Food food1 = new Food(1, "Cakwe", seller1, 17000, FoodCategory.Noodles);
       
       
       Customer customer1 = new Customer(2, "Jordan", "Farhan_kerenz@gmail.com",

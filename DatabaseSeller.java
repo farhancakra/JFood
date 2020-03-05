@@ -1,29 +1,29 @@
 
 public class DatabaseSeller
 {
-    private String[] listSeller;
+    private static String[] listSeller;
     
-    public DatabaseSeller()
+    /*public DatabaseSeller()
     {
         
-    }
+    }*/
 
-    public boolean addSeller(Seller seller){
+    public static boolean addSeller(Seller seller){
         return true;
     }
     
-    public boolean removeSeller (Seller seller){
+    public static boolean removeSeller (Seller seller){
         return true;
     }
     
-    public String[] getSeller(String[] listSeller){
+    public static Seller getSeller(int id){
         
-        return listSeller;
+        return null;
     }
     
-    public void setSeller(String[] listSeller) {
+    /* public void setSeller(String[] listSeller) {
         this.listSeller = listSeller;
-    }
+    } */
     
-    public String[] getListSeller;
+    public static String[] getListSeller;
 }

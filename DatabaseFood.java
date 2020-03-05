@@ -12,16 +12,16 @@ public class DatabaseFood
     /**
  * constructor DatabaseFood
  */
-    public DatabaseFood()
+    /*public DatabaseFood()
     {
         
-    }
+    }*/
     /**
  * mengembalikan nilai penambahan makanan
  * @params food
  * @return true
  */
-    public boolean addFood(Food food){
+    public static boolean addFood(Food food){
         return true;//mengembalikan true
         
     }
@@ -30,8 +30,12 @@ public class DatabaseFood
  * @params food
  * @return true
  */
-    public boolean removeFood(Food food){
+    public static boolean removeFood(Food food){
         return true;//mengembalikan true
+    }
+    
+    public static Food getFood(){
+        return null;
     }
     
     public String[] getListFood;

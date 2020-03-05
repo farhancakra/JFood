@@ -16,14 +16,15 @@ public class Food
     private int id;//variabel id makanan
     private String name;//variabel nama makanan
     private Seller seller;//deskripsi penjual
+    private Location city;
     private int price;// harga makanan
-    private String category;// kategori makanan
+    private FoodCategory category;
     /***
      * constructor Food digunakan untuk memasukkan deskripsi makanan baru
      * @params id, name, seller, price, category
      * @return tidak ada
      */
-    public Food(int id, String name, Seller seller, int price, String category){
+    public Food(int id, String name, Seller seller, int price, FoodCategory category){
         this.id = id;//mengganti nilai variabel id yang lama dengan parameter yang dimasukkan
         this.name = name;//mengganti nilai variabel name yang lama dengan parameter yang dimasukkan
         this.seller = seller;//mengganti nilai variabel seller yang lama dengan parameter yang dimasukkan
@@ -53,18 +54,30 @@ public class Food
      * @params tidak ada
      * @return id
      */
-    public Seller getSeller;// mendeklarasikan getter dalam bentuk variabel
-    public int getPrice;// mendeklarasikan getter dalam bentuk variabel
-    public String getCategory;//mendeklarasikan getter dalam bentuk variabel
+    public Seller getSeller(){
+        return seller;
+    }
+    // mendeklarasikan getter dalam bentuk variabel
+    public int getPrice(){
+        return price;
+    }// mendeklarasikan getter dalam bentuk variabel
+    
+    
+    public FoodCategory getCategory(){
+            return category;
+    }//mendeklarasikan getter dalam bentuk variabel
     /***
      * setter setId digunakan untuk menyimpan id baru
      * this.id digunakan untuk merujuk ke variabel id saat ini
      * @params id
      * @return tidak ada
      */
+    
     public void setId(int id) {
         this.id = id;//mengganti nilai id sesuai setter
     }
+    
+    
     /***
      * setter setName digunakan untuk menyimpan name baru
      * this.name digunakan untuk merujuk ke variabel name saat ini
@@ -98,13 +111,22 @@ public class Food
      * @params cateory
      * @return tidak ada
      */
-    public void setCategory(String category){
-        this.category = category;//mengganti nilai category sesuai setter
+    public void setCategory(FoodCategory category){
+        //this.category = category;//mengganti nilai category sesuai setter
     }
     /***
      * method dengan nama printData
      */
     public void printData(){
-        System.out.println(name);
+        System.out.println("Food");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Seller: " + seller.getName());
+        System.out.println("City: " + getSeller().getLocation().getCity());
+        System.out.println("Price: " + price);
+        System.out.println("Category: " + category);
+        
     }
+    
+    
 }
