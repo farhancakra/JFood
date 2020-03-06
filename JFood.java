@@ -15,14 +15,12 @@ public class JFood
       "jordan", "27 Februari");
       
       
-      Invoice invoice1 = new Invoice(1, 2, "27 Feb", customer1, 70000);
       
-      System.out.println(seller1.getName());
-      seller1.setName("Fadel");
-      System.out.println(seller1.getName());
-      System.out.println(customer1.getId());
+      Invoice invoice1 = new Invoice(1, food1.getId(), "27 Feb", customer1, food1.getPrice(), InvoiceStatus.Finished);
+      
       
       food1.printData();
+      invoice1.printData();
       
   }
 }

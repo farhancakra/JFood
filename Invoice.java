@@ -17,17 +17,20 @@ public class Invoice
     private String date;// tanggal pembelian
     private int totalPrice;// total harga makanan yang dibeli
     private Customer customer;// biodata customer
+    private PaymentType paymentType;
+    private InvoiceStatus status;
     /***
      * constructor Invoice digunakan untuk memasukkan pesanan baru
      * @params id, idFood, date, customer, totalPrice
      * @return tidak ada
      */
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice){
+    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status){
         this.id = id;//id di memori diganti dengan id pada parameter
         this.idFood = idFood;//idFood di memori diganti dengan idFood pada parameter
         this.date = date;//date di memori diganti dengan date pada parameter
         this.customer = customer;//customer di memori diganti dengan customer pada parameter
         this.totalPrice = totalPrice;//totalPrice di memori diganti dengan totalPrice pada parameter
+        this.status = status;
     }
     /***
      * getter getId digunakan untuk memanggil id yang saat ini tersimpan di memori
@@ -75,6 +78,14 @@ public class Invoice
     public Customer getCustomer(){
         
         return customer;//mengembalikan nilai customer
+    }
+    
+    public PaymentType getPaymentType(){
+        return paymentType; 
+    }
+    
+    public InvoiceStatus getInvoiceStatus(){
+        return status;
     }
     /***
      * setter setId digunakan untuk menyimpan id baru
@@ -124,12 +135,26 @@ public class Invoice
     public void setCustomer(Customer customer){
         this.customer = customer;//nilai customer pada memori diganti dengan parameter
     }
+    
+    public void setPaymentType(PaymentType paymentType){
+        this.paymentType = paymentType;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus status){
+        //this.status = status;
+    }
     /***
      * method bernama printData
      * @param tidak ada
      * @return tidak ada
      */
     public void printData(){
-        System.out.println(totalPrice);
+        System.out.println("===================INVOICE=============");
+        System.out.println("ID: " + id);
+        System.out.println("Food ID: " + idFood);
+        System.out.println("Date: " + date);
+        System.out.println("Customer: " + customer.getName());
+        System.out.println("Total Price " + totalPrice);
+        System.out.println("status: " + status);
     }
 }
