@@ -10,27 +10,25 @@
  *  @author Muhammad Farhan
  *  @27/02/2020
  */
-public class Invoice
+public abstract class Invoice
 {
     private int id;//id invoice
-    private int idFood;//id dari makanan yang dibeli
+    private Food food;
     private String date;// tanggal pembelian
-    private int totalPrice;// total harga makanan yang dibeli
+    protected int totalPrice;// total harga makanan yang dibeli
     private Customer customer;// biodata customer
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
     /***
      * constructor Invoice digunakan untuk memasukkan pesanan baru
      * @params id, idFood, date, customer, totalPrice
      * @return tidak ada
      */
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status){
+    public Invoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus){
         this.id = id;//id di memori diganti dengan id pada parameter
-        this.idFood = idFood;//idFood di memori diganti dengan idFood pada parameter
+        this.food = food;//idFood di memori diganti dengan idFood pada parameter
         this.date = date;//date di memori diganti dengan date pada parameter
         this.customer = customer;//customer di memori diganti dengan customer pada parameter
-        this.totalPrice = totalPrice;//totalPrice di memori diganti dengan totalPrice pada parameter
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     /***
      * getter getId digunakan untuk memanggil id yang saat ini tersimpan di memori
@@ -46,9 +44,9 @@ public class Invoice
      * @params tidak ada
      * @return idFood
      */
-    public int getFood(){
+    public Food getFood(){
         
-        return idFood;//mengembalikan nilai getFood
+        return food;//mengembalikan nilai getFood
     }
     /***
      * getter getDate digunakan untuk memanggil nilai date yang saat ini tersimpan di memori
@@ -80,12 +78,10 @@ public class Invoice
         return customer;//mengembalikan nilai customer
     }
     
-    public PaymentType getPaymentType(){
-        return paymentType; 
-    }
+    public abstract PaymentType getPaymentType();
     
     public InvoiceStatus getInvoiceStatus(){
-        return status;
+        return invoiceStatus;
     }
     /***
      * setter setId digunakan untuk menyimpan id baru
@@ -102,8 +98,8 @@ public class Invoice
      * @params idFood
      * @return tidak ada
      */
-    public void setIdFoods(int idFood){
-        this.idFood = idFood;//nilai idFood pada memori diganti dengan parameter
+    public void setFood(Food food){
+        this.food = food;//nilai idFood pada memori diganti dengan parameter
         
     }
     /***
@@ -122,10 +118,7 @@ public class Invoice
      * @params totalPrice
      * @return tidak ada
      */
-    public void setTotalPrice(int totalPrice){
-        this.totalPrice = totalPrice;//nilai totalPrice pada memori diganti dengan parameter
-        
-    }
+    public abstract void setTotalPrice();
     /***
      * setter setCustomer digunakan untuk menyimpan customer baru
      * this.customer digunakan untuk merujuk ke variabel customer saat ini
@@ -136,9 +129,7 @@ public class Invoice
         this.customer = customer;//nilai customer pada memori diganti dengan parameter
     }
     
-    public void setPaymentType(PaymentType paymentType){
-        this.paymentType = paymentType;
-    }
+    public abstract void setPaymentType(PaymentType paymentType);
     
     public void setInvoiceStatus(InvoiceStatus status){
         //this.status = status;
@@ -151,10 +142,10 @@ public class Invoice
     public void printData(){
         System.out.println("===================INVOICE=============");
         System.out.println("ID: " + id);
-        System.out.println("Food ID: " + idFood);
+        System.out.println("Food ID: " + food);
         System.out.println("Date: " + date);
         System.out.println("Customer: " + customer.getName());
         System.out.println("Total Price " + totalPrice);
-        System.out.println("status: " + status);
+        System.out.println("status: " + invoiceStatus);
     }
 }

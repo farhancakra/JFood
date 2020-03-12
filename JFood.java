@@ -16,11 +16,11 @@ public class JFood
       
       
       
-      Invoice invoice1 = new Invoice(1, food1.getId(), "27 Feb", customer1, food1.getPrice(), InvoiceStatus.Finished);
+      
       
       
       food1.printData();
-      invoice1.printData();
+      
       
   }
 }
