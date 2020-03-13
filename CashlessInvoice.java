@@ -1,7 +1,7 @@
 
-public abstract class CashlessInvoice extends Invoice
+public class CashlessInvoice extends Invoice
 {
-    private static PaymentType PAYMENT_TYPE;
+    private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
     private Promo promo;
     
     
@@ -42,13 +42,14 @@ public abstract class CashlessInvoice extends Invoice
     }
     
     public void setTotalPrice(){
-        if ((getPromo().getActive() == true) && getPromo().getMinPrice() 
-            < super.getFood().getPrice()){
-            super.totalPrice = super.getFood().getPrice() - getPromo().getMinPrice();
+        if (promo != null && promo.getActive() == true && super.getFood().getPrice() >= promo.getMinPrice())
+        {
+            super.totalPrice = getFood().getPrice() - promo.getDiscount();
         }
         
-        else{
-            super.totalPrice = super.getFood().getPrice();
+        else
+        {
+            super.totalPrice = getFood().getPrice();
         }
     }
     
@@ -61,11 +62,11 @@ public abstract class CashlessInvoice extends Invoice
         System.out.println("Customer: " + super.getCustomer().getName());
         System.out.println("Total Price " + super.getTotalPrice());
         System.out.println("status: " + super.getInvoiceStatus());
-        if ((getPromo().getActive() == true || getPromo().getMinPrice() 
-            < super.getFood().getPrice())){
-                System.out.println("Kode: " + promo.getCode());
-            }
-        
+        if (promo != null && promo.getActive() == true && super.getFood().getPrice() >= promo.getMinPrice())
+        {
+            System.out.println("Code: " + promo.getCode());
+        }
+        System.out.println ("Payment Type :" + PAYMENT_TYPE);
     }
     
     

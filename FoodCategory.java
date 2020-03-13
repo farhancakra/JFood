@@ -2,7 +2,7 @@
 public enum FoodCategory
 {
     Beverages("Beverages"),
-    Coffeee("Coffee"),
+    Coffee("Coffee"),
     Western("Western"),
     Snacks("Snacks"),
     Rice("Rice"),

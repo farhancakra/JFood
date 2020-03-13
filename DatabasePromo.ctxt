@@ -1,11 +1,15 @@
 #BlueJ class context
 comment0.target=DatabasePromo
-comment1.params=
-comment1.target=DatabasePromo()
+comment0.text=\n\ <h1>Database\ Promo<h1>\n\ Kelas\ ini\ berfungsi\ untuk\ menjadi\ wadah\ untuk\ menampung\ Promo\ makanan\ ke\ suatu\ variable\n\ list\ yaitu\ listPromo\n\ \n\ @author\ Muhammad\ Alfiyansyah\n\ @version\ 27-February-2020\n\ \n
+comment1.params=promo
+comment1.target=boolean\ addPromo(Promo)
+comment1.text=\n\ Method\ ini\ berfungsi\ untuk\ menambahkan\ Promo\ ke\ dalam\ listPromo\n\ @param\ promo\ obyek\ promo\ akan\ dimasukkan\ ke\ dalam\ list\ listPromo\n\ @return\ true,\ apabila\ obyek\ berhasil\ ditambahkan\ maka\ akan\ mengembalikan\ nilai\ true\n
 comment2.params=promo
-comment2.target=boolean\ addPromo(Promo)
-comment3.params=promo
-comment3.target=boolean\ removePromo(Promo)
+comment2.target=boolean\ removePromo(Promo)
+comment2.text=\n\ Method\ ini\ berfungsi\ untuk\ menghapus\ promo\ dari\ listPromo\n\ @param\ promo\ obyek\ promo\ akan\ dikeluarkan\ dari\ list\ listPromo\n\ @return\ true,\ apabila\ obyek\ berhasil\ dikeluarkan\ maka\ akan\ mengembalikan\ nilai\ true\n
+comment3.params=
+comment3.target=Promo\ getPromo()
 comment4.params=
-comment4.target=Promo\ getPromo()
+comment4.target=java.lang.String[]\ getListPromo()
+comment4.text=\n\ Method\ getListPromo\ merupakan\ method\ getter\ untuk\ variabel\ listPromo\n\ @return\ <code>String[]<code>\ akan\ mengembalikan\ nilai\ listPromo\ ketika\ method\ ini\n\ dipanggil\n
 numComments=5

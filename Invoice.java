@@ -10,6 +10,7 @@
  *  @author Muhammad Farhan
  *  @27/02/2020
  */
+
 public abstract class Invoice
 {
     private int id;//id invoice
@@ -129,23 +130,15 @@ public abstract class Invoice
         this.customer = customer;//nilai customer pada memori diganti dengan parameter
     }
     
-    public abstract void setPaymentType(PaymentType paymentType);
     
     public void setInvoiceStatus(InvoiceStatus status){
-        //this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     /***
      * method bernama printData
      * @param tidak ada
      * @return tidak ada
      */
-    public void printData(){
-        System.out.println("===================INVOICE=============");
-        System.out.println("ID: " + id);
-        System.out.println("Food ID: " + food);
-        System.out.println("Date: " + date);
-        System.out.println("Customer: " + customer.getName());
-        System.out.println("Total Price " + totalPrice);
-        System.out.println("status: " + invoiceStatus);
-    }
+    public abstract void printData();
 }
+
