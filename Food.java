@@ -118,12 +118,11 @@ public class Food
      * method dengan nama printData
      */
     public String toString(){
-        String output = "#################Food###############\n" + "ID = " + id + "\n" + 
-               "Nama = " + name + "\n" + "Seller = " + seller.getName() + "\n" + 
-               "City = " + seller.getLocation().getCity() + "\n" + "Price = " + price + "\n" + 
-               "Category = " + category + "\n";
-        System.out.println(output);
-        return output;
+        //String output = "#################Food###############\n" + "ID = " + id + "\n" + 
+          //     "Nama = " + name + "\n" + "Seller = " + seller.getName() + "\n" + 
+          //     "City = " + seller.getLocation().getCity() + "\n" + "Price = " + price + "\n" + 
+          //     "Category = " + category + "\n";
+        return null;
         
     }
     

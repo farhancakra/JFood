@@ -15,18 +15,14 @@ public class Jfood
         Customer customer2 = new Customer(3, "Farhan", "farhan.cakra@ui.ac.id", "parhan");
         Promo promo = new Promo (3, "543", 10000, 25000, true);
         
-        customer.toString();
-        customer1.toString();
-        customer2.toString();
+        CashlessInvoice cashless = new CashlessInvoice (1, food1, new GregorianCalendar(2020,2, 20),customer2, InvoiceStatus.Ongoing); 
+        CashInvoice cash = new CashInvoice (2, food1, new GregorianCalendar(2020, 2, 20),customer2, InvoiceStatus.Finished);
         
-        customer.setEmail("farhan.cakra10@gmail.com");
-        customer.setPassword("farhan");
         
-        //CashlessInvoice cashless = new CashlessInvoice(1, food, "10102020", customer1, InvoiceStatus.Ongoing);
-        //cashless.setTotalPrice();
-        //CashlessInvoice cashless2 = new CashlessInvoice(2, food1, "11112020", customer1, InvoiceStatus.Ongoing, promo);
-        //cashless2.setTotalPrice();
-        customer.toString();
+        
+        
+        cashless.toString();
+        cash.toString();
         
         
     

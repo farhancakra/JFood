@@ -1,6 +1,8 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Date;
+import java.text.SimpleDateFormat; 
+
 /**
  * <h1>Bukti Pembelian makanan</h1>
  *  class Invoice merupakan class yang menyimpan id pelanggan, id makanan, tanggal pembelian, 
@@ -112,14 +114,16 @@ public abstract class Invoice
      * @params date
      * @return tidak ada
      */
-    public void setDate(Calendar date){
+    public Calendar setDate(Calendar date){
         this.date = date;//nilai date pada memori diganti dengan parameter
+        return date;
         
     }
     
-    public void setJoinDate(int year, int month, int dayOfMonth)
+    public Calendar setDate(int year, int month, int dayOfMonth)
     {
         this.date=new GregorianCalendar(year,month,dayOfMonth);
+        return null;
     }
     /***
      * setter setTotalPrice digunakan untuk menyimpan totalPrice baru
@@ -147,6 +151,8 @@ public abstract class Invoice
      * @param tidak ada
      * @return tidak ada
      */
-    public abstract void printData();
+    public String toString(){
+        return null;
+    }
 }
 
