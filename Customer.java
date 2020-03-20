@@ -6,6 +6,13 @@
  *  @27/02/2020
  */
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 
 public class Customer
 {
@@ -14,19 +21,114 @@ public class Customer
     private String name;//variabel nama pelanggan
     private String email;//variabel email pelanggan
     private String password;//variabel password pelanggan
-    private String joinDate;//variabel tanggal pelanggan bergabung
+    private Calendar joinDate;//variabel tanggal pelanggan bergabung
     /***
      * constructor customer digunakan untuk memasukkan biodata baru
      * @params id, name, email, password, joinDate
      * @return tidak ada
      */
-    public Customer(int id, String name, String email, String password, String joinDate) {
+    public Customer(int id, String name, String email, String password, Calendar joinDate) {
         this.id = id; //mengganti nilai variabel id yang lama dengan parameter yang dimasukkan
         this.name = name;//mengganti nilai variabel name yang lama dengan parameter yang dimasukkan
-        this.email = email;//mengganti nilai variabel email yang lama dengan parameter yang dimasukkan
-        this.password = password;//mengganti nilai variabel password yang lama dengan parameter yang dimasukkan
+        String emailr = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+     
+            Pattern p1 = Pattern.compile(emailr);
+     
+            Matcher m1 = p1.matcher(email);
+            if(m1.matches()) {
+                this.email=email;
+                System.out.println(email);
+            }
+            else {
+                this.email="";
+                System.out.println(email);
+            }
+        
+        String passr = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern p2 = Pattern.compile(passr);
+        Matcher m2 = p2.matcher(password);
+        if(m2.matches())
+        {
+            this.password=password;
+            System.out.println(password);
+        }
+        else 
+        {
+            this.password="";
+            System.out.println(password);
+        }
+        
         this.joinDate = joinDate;//mengganti nilai variabel joinDate yang lama dengan parameter yang dimasukkan
     }
+    
+    public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth) {
+        this.id = id; //mengganti nilai variabel id yang lama dengan parameter yang dimasukkan
+        this.name = name;//mengganti nilai variabel name yang lama dengan parameter yang dimasukkan
+        String emailr = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+     
+            Pattern p1 = Pattern.compile(emailr);
+     
+            Matcher m1 = p1.matcher(email);
+            if(m1.matches()) {
+                this.email=email;
+                System.out.println(email);
+            }
+            else {
+                this.email="";
+                System.out.println(email);
+            }
+        
+        String passr = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern p2 = Pattern.compile(passr);
+        Matcher m2 = p2.matcher(password);
+        if(m2.matches())
+        {
+            this.password=password;
+            System.out.println(password);
+        }
+        else 
+        {
+            this.password="";
+            System.out.println(password);
+        }
+        
+        this.joinDate = new GregorianCalendar(year,month,dayOfMonth);//mengganti nilai variabel joinDate yang lama dengan parameter yang dimasukkan
+        
+    }
+    
+    public Customer(int id, String name, String email, String password) {
+        this.id = id; //mengganti nilai variabel id yang lama dengan parameter yang dimasukkan
+        this.name = name;//mengganti nilai variabel name yang lama dengan parameter yang dimasukkan
+        String emailr = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+     
+            Pattern p1 = Pattern.compile(emailr);
+     
+            Matcher m1 = p1.matcher(email);
+            if(m1.matches()) {
+                this.email=email;
+                System.out.println(email);
+            }
+            else {
+                this.email="";
+                System.out.println(email);
+            }
+        
+        String passr = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern p2 = Pattern.compile(passr);
+        Matcher m2 = p2.matcher(password);
+        if(m2.matches())
+        {
+            this.password=password;
+            System.out.println(password);
+        }
+        else 
+        {
+            this.password="";
+            System.out.println(password);
+        }
+    }
+    
+    
     /***
      * getter getId digunakan untuk memanggil id yang saat ini tersimpan di memori
      * @params tidak ada
@@ -66,7 +168,10 @@ public class Customer
     /***
      * variable getJoinDate
      */
-    public String getJoinDate;//mengembalikan nilai getJoinDate
+    public Calendar getJoinDate()
+        {
+            return joinDate;
+        }//mengembalikan nilai getJoinDate
     /***
      * setter setId digunakan untuk menyimpan id baru
      * this.id adalah digunakan untuk merujuk ke variabel id saat ini
@@ -93,10 +198,22 @@ public class Customer
      * @params email
      * @return tidak ada
      */
-    public void setEmail(String email) {
-        
-        this.email = email;//mengganti nilai email sesuai setter
-    }
+    public void setEmail(String email)
+        {
+            String r = "^[\\w&*_~]+(?:\\.[\\w&*_~]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+     
+            Pattern p = Pattern.compile(r);
+     
+            Matcher m = p.matcher(email);
+            if(m.matches()) {
+                this.email=email;
+                System.out.println(email);
+            }
+            else {
+                this.email="";
+                System.out.println(email);
+            }
+        }
     /***
      * setter setPassword digunakan untuk menyimpan password baru
      * this.password adalah digunakan untuk merujuk ke variabel password saat ini
@@ -105,7 +222,19 @@ public class Customer
      */
     public void setPassword(String password) {
         
-        this.password = password;//mengganti nilai password sesuai setter
+        String r = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern p = Pattern.compile(r);
+        Matcher m = p.matcher(password);
+        if(m.matches())
+        {
+            this.password=password;
+            System.out.println(password);
+        }
+        else 
+        {
+            this.password="";
+            System.out.println(password);
+        }
     }
     /***
      * setter joinDate digunakan untuk menyimpan tanggal baru
@@ -113,17 +242,37 @@ public class Customer
      * @params joinDate
      * @return tidak ada
      */
-    public void JoinDate(String joinDate) {
-        
-        this.joinDate = joinDate;//mengganti nilai joinDate sesuai setter
+    public void setJoinDate(Calendar joinDate)
+    {
+        this.joinDate=joinDate;
+    }
+    
+    public void setJoinDate(int year, int month, int dayOfMonth)
+    {
+        this.joinDate=new GregorianCalendar(year,month,dayOfMonth);
     }
     /***
      * Ketika method printData dipanggil maka akan menampilkan isi dari variabel name
      * @params tidak ada
      * @return tidak ada
      */
-    public void printData() {
-        System.out.println(name);//menampilkan nilai name
+    public String toString()
+    {
+        String output = "";
+        if(joinDate!=null) {
+            Date date = joinDate.getTime();             
+            SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+            String date1 = format1.format(date);  
+            output = "################Customer###############\n"+
+                   "ID = "+ id+ "\n"+ "Nama = "+ name+ "\n"+ "Email = "+ email+ "\n"+ "Password = "+ password+ "\n"+
+                   "Join Date = "+ date1+ "\n";
+        }
+        else
+        {
+            output = "################Customer###############\n"+ "ID = " + id + "\n" + "Nama = " + name + "\n" + "Email = " + email + "\n" +
+                   "Password = "+ password + "\n";
+        }
+        return output;
     }
     
     

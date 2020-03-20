@@ -84,8 +84,14 @@ public class Location
     /***
      * method ini digunakan untuk menampilkan isi dari variabel province ke layar
      */
-    public void printData(){
-        System.out.println(province);//menampilkan nilai province
+    public String toString()
+    {
+        String output = "Location:\n"+
+               "Province = "+province+"\n"+
+               "City = "+city+"\n"+
+               "Description = "+description+"\n";
+        System.out.println(output);
+        return output;
     }
     
    

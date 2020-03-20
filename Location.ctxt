@@ -23,6 +23,6 @@ comment7.params=description
 comment7.target=void\ setDescription(java.lang.String)
 comment7.text=\n\ setter\ setDescription\ digunakan\ untuk\ menyimpan\ nilai\ description\ baru\n\ this.description\ digunakan\ untuk\ merujuk\ ke\ variabel\ description\ saat\ ini\n\ @params\ description\n\ @return\ tidak\ ada\n
 comment8.params=
-comment8.target=void\ printData()
+comment8.target=java.lang.String\ toString()
 comment8.text=\n\ method\ ini\ digunakan\ untuk\ menampilkan\ isi\ dari\ variabel\ province\ ke\ layar\n
 numComments=9

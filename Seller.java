@@ -126,7 +126,14 @@ public class Seller
     /***
      * jika method printData dipanggil, maka akan menampilkan nilai dari name
      */
-    public void printData() {
-        System.out.println(name);//menampilkan isi variabel name
+    public String toString()
+    {
+        String output = "Seller :\n"+
+               "ID = "+id+"\n"+
+               "Nama = "+name+"\n"+
+               "Phone Number = "+phoneNumber+"\n"+
+               "Location = "+location.getCity()+"\n";
+        System.out.println(output);
+        return output;
     }
 }

@@ -10,13 +10,13 @@ public class CashInvoice extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee;
     
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus){
-        super(id, food, date, customer, invoiceStatus);
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus){
+        super(id, food, customer, invoiceStatus);
     }
     
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, 
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, 
                         int deliveryFee){
-        super(id, food, date, customer, invoiceStatus);
+        super(id, food, customer, invoiceStatus);
         this.deliveryFee = deliveryFee;
     }
 

@@ -1,14 +1,19 @@
+import java.util.*;
+import java.text.*;
 
 public class CashlessInvoice extends Invoice
 {
+    Date date = new Date();
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
     private Promo promo;
     
     
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashlessInvoice(int id, Food food,  Customer customer,
                             InvoiceStatus invoiceStatus)
     {
-        super(id, food, date, customer, invoiceStatus);
+      
+        super(id, food, customer, invoiceStatus);
+        
         //this.id = id;
         //this.food = food;
         //this.date = date;
@@ -16,7 +21,7 @@ public class CashlessInvoice extends Invoice
         //this.invoiceStatus = invoiceStatus;
     }
     
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashlessInvoice(int id, Food food, Customer customer,
                             InvoiceStatus invoiceStatus, Promo promo)
     {
         super(id, food, date, customer, invoiceStatus);
