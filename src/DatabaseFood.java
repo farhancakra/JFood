@@ -5,10 +5,11 @@
  *  @author Muhammad Farhan
  *  @27/02/2020
  */
-
+import java.util.ArrayList;
 public class DatabaseFood
 {
-    private static String[] listFood;//membuat list string listFood
+    private static ArrayList<Seller> FOOD_DATABASE;
+    private static int lastId = 0;
     /**
  * constructor DatabaseFood
  */
@@ -21,6 +22,29 @@ public class DatabaseFood
  * @params food
  * @return true
  */
+    public static ArrayList<Food> getFoodDatabase(){
+        return FOOD_DATABASE;
+    }
+
+    public static int getLastId(){
+        return lastId;
+    }
+
+    public static Food getFoodById(int id){
+
+        return Food.getId();
+    }
+
+    public static ArrayList<Food> getFoodBySeller(int sellerid){
+
+        return Food.getSeller();
+    }
+
+    public static ArrayList<Food> getFoodByCategory(FoodCategory category){
+
+        return Food.getSeller();
+    }
+
     public static boolean addFood(Food food){
         return true;//mengembalikan true
         
@@ -30,16 +54,8 @@ public class DatabaseFood
  * @params food
  * @return true
  */
-    public static boolean removeFood(Food food){
+    public static boolean removeFood(int id){
         return true;//mengembalikan true
-    }
-    
-    public static Food getFood(){
-        return null;
-    }
-    
-    public static String[] getListFood(){
-     return listFood;   
     }
     
     

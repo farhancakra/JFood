@@ -19,13 +19,13 @@ public class CashInvoice extends Invoice
     PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee;
     
-    public CashInvoice(int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus){
-        super(id, food, date, customer, invoiceStatus);
+    public CashInvoice(int id, ArrayList<Food> foods, Calendar date, Customer customer){
+        super(id, foods, date, customer);
     }
     
-    public CashInvoice(int id, Food food, Customer customer, Calendar date, InvoiceStatus invoiceStatus, 
+    public CashInvoice(int id,ArrayList<Food> foods, Customer customer, Calendar date,
                         int deliveryFee){
-        super(id, food, date, customer, invoiceStatus);
+        super(id, foods, date, customer);
         this.deliveryFee = deliveryFee;
     }
 
@@ -61,7 +61,6 @@ public class CashInvoice extends Invoice
         System.out.println ("Customer : " + super.getCustomer().getName());
         System.out.println ("Delivery Fee : " + getDeliveryFee());
         System.out.println ("Total Price : " + super.totalPrice);
-        System.out.println ("Status :" + super.getInvoiceStatus());
         System.out.println ("Payment Type :" + PAYMENT_TYPE);
         
         return null;

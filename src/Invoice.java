@@ -10,7 +10,7 @@
  *  @author Muhammad Farhan
  *  @27/02/2020
  */
-
+import java.util.ArrayList;
 import java.util.*; 
 import java.util.Calendar; 
 import java.util.Date; 
@@ -22,14 +22,13 @@ import java.util.regex.Pattern;
 
 public abstract class Invoice{
     private int id; 
-    //private int idFood; 
-    private Food food; 
-    private Calendar date; 
+    //private int idFood;
+    private ArrayList<Food> foods = new ArrayList<Food>();
+    private Calendar date;
     protected int totalPrice; 
     private Customer customer; //connecting to Customer class
-    private InvoiceStatus invoiceStatus; 
     //private PaymentType paymentType; 
-    //private InvoiceStatus status; 
+    private InvoiceStatus status;
     
     /**
     * this method class invoice is used for getting information about food  
@@ -41,14 +40,14 @@ public abstract class Invoice{
     * @param customer, this variable is used for customer
     */
     
-    public Invoice (int id, Food food, Calendar date, Customer customer, InvoiceStatus invoiceStatus){
+    public Invoice (int id, ArrayList<Food> foods, Calendar date, Customer customer, InvoiceStatus status){
         
         this.id=id; 
-        this.food=food; 
+        this.foods=foods;
         //this.date=new isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         this.date=date; 
-        this.customer=customer; 
-        this.invoiceStatus=invoiceStatus; 
+        this.customer=customer;
+        this.status = status.Ongoing;
     }
     
     public int getId(){
@@ -58,18 +57,18 @@ public abstract class Invoice{
         return id; 
     }
     
-    public Food getFood(){
+    public ArrayList<Food> getFood(){
          /*
          * @return idFood
          */
-        return food; 
+        return foods;
     }
     
     public Calendar getDate(){
          /*
          * @return date
          */
-        return date; 
+        return date;
     }
     
     public int getTotalPrice(){
@@ -81,17 +80,14 @@ public abstract class Invoice{
     }
     
     public abstract PaymentType getPaymentType(); 
-    
-    public InvoiceStatus getInvoiceStatus(){
-        return invoiceStatus; 
-    }
+
     
     public void setId (int id){
     
     }
     
-    public void setFood(Food food){
-    
+    public void setFood(ArrayList<Food> foods){
+        this.foods = foods;
     }
     
     public Calendar setDate (Calendar date){
@@ -115,10 +111,7 @@ public abstract class Invoice{
     public void setPaymentType (PaymentType paymentType){
         
     }
-    
-    public void setInvoiceStatus (InvoiceStatus status){
-        
-    }
+
     
     public String toString(){
         return null; 

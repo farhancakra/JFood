@@ -20,7 +20,7 @@
         return listPromo;
     }
 }*/
-
+import java.util.ArrayList;
 /**
  * <h1>Database Promo<h1>
  * Kelas ini berfungsi untuk menjadi wadah untuk menampung Promo makanan ke suatu variable
@@ -33,7 +33,8 @@
 public class DatabasePromo
 {
     //Atribut yang digunakan pada kelas ini dengan access modifier private
-    private String[] listPromo;
+    private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
+    private static int lastId = 0;
     
 
     
@@ -42,11 +43,20 @@ public class DatabasePromo
      * @param promo obyek promo akan dimasukkan ke dalam list listPromo
      * @return true, apabila obyek berhasil ditambahkan maka akan mengembalikan nilai true
      */
-    public boolean addPromo(Promo promo)
-    {
-       return false;
+    public static boolean addPromo(Promo promo) { return true;}
+    public static boolean removePromo (int id) { return true;}
+    public static boolean activatePromo(int id) { return true;}
+    public static boolean deactivatePromo(int id) { return true;}
+    public static Promo getPromoByCode(String code) { return Promo.getCode();}
+    public static Promo getPromoById(int id) { return Promo.getId();}
+    public static int getLastId() {
+        return lastId;
     }
-    
+    public static ArrayList<Promo> getPromoDatabase() {
+        return PROMO_DATABASE;
+    }
+
+
     /**
      * Method ini berfungsi untuk menghapus promo dari listPromo
      * @param promo obyek promo akan dikeluarkan dari list listPromo

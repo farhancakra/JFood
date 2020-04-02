@@ -1,9 +1,9 @@
-
+import java.util.ArrayList;
 public class DatabaseCustomer
 {
-    
-    private String[] listFood;
-    public Customer customer;
+
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
+    private static int lastId = 0;
     
     public DatabaseCustomer()
     {
@@ -20,16 +20,14 @@ public class DatabaseCustomer
         return true;
     }
     
-    public Customer getCustomer(){
+    public Customer getCustomerById(int id){
         return null;
     }
-    
-    public void setCustomer(Customer customer){
-        this.customer = customer;//mengganti nilai name sesuai setter
+    public int getLastId(){
+        return lastId;
     }
     
-    
-    public String[] getListCustomer (){
-        return null;
+    public ArrayList<Customer> getCustomerDatabase(){
+        return CUSTOMER_DATABASE;
     }
 }
