@@ -106,7 +106,10 @@ public abstract class Invoice{
     public void setCustomer (Customer customer){
             this.customer = customer;
     }
-    
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus){
+        this.invoiceStatus = invoiceStatus;
+    }
     public abstract String toString();
 
     
