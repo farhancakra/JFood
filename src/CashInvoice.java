@@ -16,16 +16,18 @@ import java.util.regex.Pattern;
 
 public class CashInvoice extends Invoice
 {
-    PaymentType PAYMENT_TYPE = PaymentType.Cash;
+    private static PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee;
-    
-    public CashInvoice(int id, ArrayList<Food> foods, Calendar date, Customer customer){
-        super(id, foods, date, customer);
+
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
+    {
+        // initialise instance variables
+        super (id, foods, customer);
     }
-    
-    public CashInvoice(int id,ArrayList<Food> foods, Customer customer, Calendar date,
-                        int deliveryFee){
-        super(id, foods, date, customer);
+
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer,int deliveryFee)
+    {
+        super (id, foods, customer);
         this.deliveryFee = deliveryFee;
     }
 
@@ -38,30 +40,34 @@ public class CashInvoice extends Invoice
     }
     
     public void setDeliveryFee(int deliveryFee){
-        //this.deliveryFee = deliveryFee;
+        this.deliveryFee = deliveryFee;
     }
-    
-    public void setTotalPrice(){
-        if (deliveryFee == 0){
-            super.totalPrice = super.getFood().getPrice();
+
+    public void setTotalPrice()
+    {
+        int foodPrice=0;
+        for(int i = 0; i < super.getFoods().size(); i++){
+            foodPrice+=super.getFoods().get(i).getPrice();
         }
-        
-        else{
-            super.totalPrice = super.getFood().getPrice() + deliveryFee;
+        if(deliveryFee>0)
+        {
+            super.totalPrice=foodPrice+deliveryFee;
         }
+        else super.totalPrice=foodPrice;
     }
-    
+
     public String toString(){
         SimpleDateFormat date2 = new SimpleDateFormat(" dd MMMM YYYY");
-        
+
         System.out.println ("===========Invoice===========");
         System.out.println ("Id : " + super.getId());
-        System.out.println ("Food : " + super.getFood().getName());
+        System.out.println ("Food : " + super.getFoods());
         System.out.println("Date: " + date2.format(getDate().getTime()));
         System.out.println ("Customer : " + super.getCustomer().getName());
         System.out.println ("Delivery Fee : " + getDeliveryFee());
         System.out.println ("Total Price : " + super.totalPrice);
+        System.out.println ("Status :" + super.getInvoiceStatus());
         System.out.println ("Payment Type :" + PAYMENT_TYPE);
-        
+
         return null;
     }}

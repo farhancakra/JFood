@@ -10,7 +10,7 @@
  *  @author Muhammad Farhan
  *  @27/02/2020
  */
-import java.util.ArrayList;
+
 import java.util.*; 
 import java.util.Calendar; 
 import java.util.Date; 
@@ -18,17 +18,18 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat; 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import java.util.ArrayList;
 
 public abstract class Invoice{
     private int id; 
-    //private int idFood;
-    private ArrayList<Food> foods = new ArrayList<Food>();
-    private Calendar date;
+    //private int idFood; 
+    private ArrayList<Food> foods = new ArrayList();
+    private Calendar date; 
     protected int totalPrice; 
     private Customer customer; //connecting to Customer class
+    private InvoiceStatus invoiceStatus = InvoiceStatus.Ongoing;
     //private PaymentType paymentType; 
-    private InvoiceStatus status;
+    //private InvoiceStatus status; 
     
     /**
     * this method class invoice is used for getting information about food  
@@ -40,14 +41,14 @@ public abstract class Invoice{
     * @param customer, this variable is used for customer
     */
     
-    public Invoice (int id, ArrayList<Food> foods, Calendar date, Customer customer, InvoiceStatus status){
+    public Invoice (int id, ArrayList<Food> foods, Customer customer){
         
         this.id=id; 
         this.foods=foods;
         //this.date=new isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.date=date; 
-        this.customer=customer;
-        this.status = status.Ongoing;
+        //this.date=date;
+        this.customer=customer; 
+        //this.invoiceStatus=invoiceStatus;
     }
     
     public int getId(){
@@ -57,10 +58,7 @@ public abstract class Invoice{
         return id; 
     }
     
-    public ArrayList<Food> getFood(){
-         /*
-         * @return idFood
-         */
+    public ArrayList<Food> getFoods(){
         return foods;
     }
     
@@ -68,7 +66,7 @@ public abstract class Invoice{
          /*
          * @return date
          */
-        return date;
+        return date; 
     }
     
     public int getTotalPrice(){
@@ -80,42 +78,37 @@ public abstract class Invoice{
     }
     
     public abstract PaymentType getPaymentType(); 
-
+    
+    public InvoiceStatus getInvoiceStatus(){
+        return invoiceStatus; 
+    }
     
     public void setId (int id){
     
     }
     
-    public void setFood(ArrayList<Food> foods){
+    public void setFoods(ArrayList<Food> foods){
         this.foods = foods;
     }
     
     public Calendar setDate (Calendar date){
         this.date=date; 
-        return date;  
+        return date;
     }
     
     public Calendar setDate (int year, int month, int dayOfMonth){
             this.date= new GregorianCalendar(year,month,dayOfMonth);
-            return null; 
+            return date;
     }
     
-    public void setTotalPrice (){
-    
-    }
+    public abstract void setTotalPrice ();
     
     public void setCustomer (Customer customer){
-    
+            this.customer = customer;
     }
     
-    public void setPaymentType (PaymentType paymentType){
-        
-    }
+    public abstract String toString();
 
-    
-    public String toString(){
-        return null; 
-    }
     
 }
 
