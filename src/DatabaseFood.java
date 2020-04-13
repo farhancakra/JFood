@@ -31,13 +31,13 @@ public class DatabaseFood
     {
         return lastId;
     }
-    public static Food getFoodById(int id)
-    {
-        Food food = FOOD_DATABASE.get(id);
-        if (food != null) {
-            return food;
+    public static Food getFoodById(int id) throws FoodNotFoundException{
+        for (Food food: FOOD_DATABASE) {
+            if (food.getId() == id) {
+                return food;
+            }
         }
-        return null;
+        throw new FoodNotFoundException(id);
     }
 
     public static ArrayList<Food> getFoodBySeller (int sellerId)
@@ -72,13 +72,14 @@ public class DatabaseFood
         return false;
     }
 
-    public static boolean removeFood(int id) {
-        Food food = FOOD_DATABASE.get(id);
-        if (food != null) {
-            FOOD_DATABASE.remove(food);
-            return true;
+    public static boolean removeFood(int id) throws FoodNotFoundException{
+        for (Food food: FOOD_DATABASE) {
+            if (food.getId() == id) {
+                FOOD_DATABASE.remove(food);
+                return true;
+            }
         }
-        return false;
+        throw new FoodNotFoundException(id);
     }
       /**
  * mengembalikan nilai pengurangan makanan

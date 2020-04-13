@@ -17,37 +17,41 @@ public class DatabaseCustomer {
         return lastId;
     }
 
-    public static Customer getCustomerById(int id) {
-        Customer customer = CUSTOMER_DATABASE.get(id);
-        if (customer != null) {
-            return customer;
+    public static Customer getCustomerById(int id) throws CustomerNotFoundException{
+        for (Customer customer: CUSTOMER_DATABASE) {
+            if (customer.getId() == id){
+                return customer;
+            }
         }
-        return null;
+        throw new CustomerNotFoundException(id);
+
     }
 
-    public static boolean addCustomer(Customer customer) {
+    public static boolean addCustomer(Customer customer) throws EmailAlreadyExistException {
         // initialise instance variables
         boolean email = false;
         for (Customer cust : CUSTOMER_DATABASE) {
             if (customer.getEmail() == cust.getEmail()) {
                 email = true;
+                break;
             }
         }
 
         if (!email) {
             CUSTOMER_DATABASE.add(customer);
-            lastId = CUSTOMER_DATABASE.indexOf(customer);
-        }
-        return false;
-    }
-
-    public static boolean removeCustomer(int id) {
-        // put your code here
-        Customer customer = CUSTOMER_DATABASE.get(id);
-        if (customer != null) {
-            CUSTOMER_DATABASE.remove(customer);
+            lastId = customer.getId();
             return true;
         }
-        return false;
+        throw new EmailAlreadyExistException(customer);
+    }
+
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException{
+        for (Customer customer: CUSTOMER_DATABASE) {
+            if (customer.getId() == id){
+                CUSTOMER_DATABASE.remove(customer);
+                return true;
+            }
+        }
+        throw new CustomerNotFoundException(id);
     }
 }

@@ -46,13 +46,14 @@ public class DatabasePromo
     {
         return lastId;
     }
-    public static Promo getPromoById(int id)
-    {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            return promo;
+    public static Promo getPromoById(int id) throws PromoNotFoundException{
+        for (Promo promo: PROMO_DATABASE) {
+            if (promo.getId() == id) {
+                return promo;
+            }
         }
-        return null;
+        throw new PromoNotFoundException(id);
+
     }
 
     public static Promo getPromoByCode(String code)
@@ -70,21 +71,22 @@ public class DatabasePromo
      * @param promo obyek promo akan dimasukkan ke dalam list listPromo
      * @return true, apabila obyek berhasil ditambahkan maka akan mengembalikan nilai true
      */
-    public static boolean addPromo(Promo promo)
-    {
-        // put your code here
+    public static boolean addPromo(Promo promo) throws PromoCodeAlreadyExistException{
+    
         boolean kodePromo = false;
         for (Promo i: PROMO_DATABASE) {
             if (promo.getCode() == i.getCode()) {
                 kodePromo = true;
+                break;
             }
         }
 
         if (!kodePromo) {
             PROMO_DATABASE.add(promo);
-            lastId = PROMO_DATABASE.indexOf(promo);
+            lastId = promo.getId();
+            return true;
         }
-        return false;
+        throw new PromoCodeAlreadyExistException(promo);
     }
 
     public static boolean activePromo(int id)
@@ -111,14 +113,14 @@ public class DatabasePromo
      * @param promo obyek promo akan dikeluarkan dari list listPromo
      * @return true, apabila obyek berhasil dikeluarkan maka akan mengembalikan nilai true
      */
-    public static boolean removePromo(int id)
-    {
-        Promo remove = PROMO_DATABASE.get(id);
-        if (remove != null) {
-            PROMO_DATABASE.remove(remove);
-            return true;
+    public boolean removePromo (int id) throws PromoNotFoundException{
+        for (Promo promo: PROMO_DATABASE) {
+            if (promo.getId() == id) {
+                PROMO_DATABASE.remove(promo);
+                return true;
+            }
         }
-        return false;
+        throw new PromoNotFoundException(id);
     }
 
     
