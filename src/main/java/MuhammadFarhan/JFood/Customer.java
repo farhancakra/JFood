@@ -38,7 +38,7 @@ public class Customer{
        this.id=id; 
        this.name=name; 
        this.email=email; 
-       this.password=password; 
+       this.password=password;
        this.joinDate=joinDate; 
        setEmail(email); 
        setPassword(password); 
@@ -61,7 +61,8 @@ public class Customer{
        this.id=id; 
        this.name=name; 
        this.email=email; 
-       this.password=password; 
+       this.password=password;
+       this.joinDate = Calendar.getInstance();
        setEmail(email); 
        setPassword(password);
     }
@@ -117,23 +118,24 @@ public class Customer{
         }
         else{
             //System.out.println("Email : NULL"); 
-            this.email=""; 
+            this.email="sukurin";
         }
         
     }
-    
+
     public void setPassword(String password){
-        String passwordRegex = //"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
-                                "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z\\d]{6,}$";
+        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+                                //"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z\\d]{6,}$";
         Pattern pat = Pattern.compile(passwordRegex); 
         Matcher m = pat.matcher(password); 
-        if (m.matches()){
+        if (m.find()){
             //System.out.println("Password : " + m.group()); 
             this.password=password; 
         }
         else{
             //System.out.println("Password : NULL"); 
-            this.password=""; 
+            //this.password="sukurin";
+            this.password=password;
         }
     }
     

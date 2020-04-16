@@ -55,4 +55,14 @@ public class DatabaseCustomer {
         }
         throw new CustomerNotFoundException(id);
     }
+
+    public static Customer CustomerLogin(String email, String password){
+        for (Customer customer: CUSTOMER_DATABASE) {
+            if ((customer.getEmail() == email) && (customer.getPassword() == password)) {
+                return customer;
+
+            }
+    }
+        return null;
+}
 }
