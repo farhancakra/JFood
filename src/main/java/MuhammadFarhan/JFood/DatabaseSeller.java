@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class DatabaseSeller
 {
-    private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<Seller>();
+    private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
 
@@ -30,7 +30,7 @@ public class DatabaseSeller
     }
     public static boolean addSeller(Seller seller){
         SELLER_DATABASE.add(seller);
-        lastId = SELLER_DATABASE.indexOf(seller);
+        lastId = seller.getId();
         return true;
     }
 
